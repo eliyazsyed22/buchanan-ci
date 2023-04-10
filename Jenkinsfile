@@ -10,7 +10,7 @@ pipeline{
     
     stages {
         
-        /*stage('Git Checkout'){
+        stage('Git Checkout'){
             
             steps{
                 
@@ -65,7 +65,7 @@ pipeline{
                    sh 'docker push ${APP_NAME}:v1.${IMAGE_TAG}'
                 }
             }
-        }*/
+        }
         /*stage('Trigger Update Manifest') {
             steps{
                     echo "triggering Update manifest Job"
