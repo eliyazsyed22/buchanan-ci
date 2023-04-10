@@ -75,7 +75,7 @@ pipeline{
         stage('Update k8 deployment file'){
             steps{
                 script{
-                    sh 'cat eks-deployment.yaml'
+                    sh 'cat eks-deployment.yml'
                     //sh 'sed -i s/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' eks-deployment.yaml
                     //sh 'cat eks-deployment.yaml'
                 }
