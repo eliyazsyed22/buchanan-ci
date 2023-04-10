@@ -64,7 +64,7 @@ pipeline{
 
             steps{
                 script{
-                   sh 'docker push public.ecr.aws/p5u5p5h0/buchananecr:${env.BUILD_NUMBER}'
+                   sh 'docker push public.ecr.aws/p5u5p5h0/buchananecr:$BUILD_ID'
                 }
             }
         }  
