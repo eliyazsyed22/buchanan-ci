@@ -10,7 +10,7 @@ pipeline{
     
     stages {
         
-        stage('Git Checkout'){
+        /*stage('Git Checkout'){
             
             steps{
                 
@@ -65,7 +65,7 @@ pipeline{
                    sh 'docker push ${APP_NAME}:v1.${IMAGE_TAG}'
                 }
             }
-        }  
+        }*/
         /*stage('Trigger Update Manifest') {
             steps{
                     echo "triggering Update manifest Job"
@@ -75,7 +75,7 @@ pipeline{
         stage('Update k8 deployment file'){
             steps{
                 script{
-                    sh 'cat eks-deployment.yml'
+                    sh 'cat test.txt'
                     //sh 'sed -i s/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' eks-deployment.yaml
                     //sh 'cat eks-deployment.yaml'
                 }
