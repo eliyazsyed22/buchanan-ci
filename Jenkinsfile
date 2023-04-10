@@ -4,10 +4,8 @@ pipeline{
     agent any 
 
     environment{
-        AWS_ACCOUNT_ID="p5u5p5h0"
-        AWS_DEFAULT_REGION="us-east-1"
-        IMAGE_REPO_NAME="buchananecr"
-        REPOSITORY_URI="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
+        APP_NAME = "public.ecr.aws/p5u5p5h0/buchananecr"
+        IMAGE_TAG = "${BUILD_ID}"
     }
     
     stages {
@@ -54,7 +52,7 @@ pipeline{
             
             steps{
                 script{
-                   sh 'docker image build -t public.ecr.aws/p5u5p5h0/buchananecr:v1.$BUILD_ID .'
+                   sh 'docker image build -t ${APP_NAME}:v1.${IMAGE_TAG} .'
                     //sh 'docker build -t public.ecr.aws/p5u5p5h0/buchananecr:${env.BUILD_NUMBER} .'
                    //sh 'docker tag buchananecr:buchananlatest public.ecr.aws/p5u5p5h0/buchananecr:buchananlatest'
                 }
@@ -64,7 +62,7 @@ pipeline{
 
             steps{
                 script{
-                   sh 'docker push public.ecr.aws/p5u5p5h0/buchananecr:v1.$BUILD_ID'
+                   sh 'docker push ${APP_NAME}:v1.${IMAGE_TAG}'
                 }
             }
         }  
