@@ -76,8 +76,8 @@ pipeline{
             steps{
                 script{
                     sh 'cat eks-deployment.yaml'
-                    sh 'sed -i s/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' eks-deployment.yaml
-                    sh 'cat eks-deployment.yaml'
+                    //sh 'sed -i s/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' eks-deployment.yaml
+                    //sh 'cat eks-deployment.yaml'
                 }
             }
         }
