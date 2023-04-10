@@ -69,7 +69,7 @@ pipeline{
         stage('Trigger Update Manifest') {
             steps{
                     echo "triggering Update manifest Job"
-                    build job: 'argocd-update-manifest', parameters: [string(name: 'DOCKERTAG', value: ${IMAGE_TAG})]
+                    build job: 'argocd-update-manifest', parameters: [string(name: 'DOCKERTAG', value: '${IMAGE_TAG}')]
             }
         }
         /*stage('Update k8 deployment file'){
