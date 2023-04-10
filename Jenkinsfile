@@ -66,18 +66,18 @@ pipeline{
                 }
             }
         }
-        /*stage('Trigger Update Manifest') {
+        stage('Trigger Update Manifest') {
             steps{
                     echo "triggering Update manifest Job"
-                    build job: 'argocd-update-manifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+                    build job: 'argocd-update-manifest', parameters: [string(name: 'DOCKERTAG', value: ${IMAGE_TAG})]
             }
-        }*/
-        stage('Update k8 deployment file'){
+        }
+        /*stage('Update k8 deployment file'){
             steps{
                 script{
                     sh 'sed -i 's|${APP_NAME}.*|${APP_NAME}:${IMAGE_TAG}|g' test.yaml'
                 }
             }
-        }
+        }*/
     }       
 }
