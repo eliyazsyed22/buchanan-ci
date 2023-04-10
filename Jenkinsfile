@@ -75,9 +75,11 @@ pipeline{
         stage('Update k8 deployment file'){
             steps{
                 script{
-                    sh 'cat test.yaml'
-                    sh 'sed -i s/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' test.yaml
-                    sh 'cat test.yaml'
+                    sh """
+                    cat test.yaml
+                    'sed -i s/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' test.yaml
+                    cat test.yaml 
+                    """
                 }
             }
         }
