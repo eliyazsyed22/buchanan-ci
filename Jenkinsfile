@@ -54,7 +54,7 @@ pipeline{
             
             steps{
                 script{
-                   sh 'docker image build -t buchananecr:v1.$BUILD_ID .'
+                   sh 'docker image build -t public.ecr.aws/p5u5p5h0/buchananecr:v1.$BUILD_ID .'
                     //sh 'docker build -t public.ecr.aws/p5u5p5h0/buchananecr:${env.BUILD_NUMBER} .'
                    //sh 'docker tag buchananecr:buchananlatest public.ecr.aws/p5u5p5h0/buchananecr:buchananlatest'
                 }
