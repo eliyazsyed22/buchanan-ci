@@ -1,45 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: springboot-app
-  name: springboot-app
+  name: myjavaapp-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: springboot-app
+      app: myjavaapp
   template:
     metadata:
       labels:
-        app: springboot-app
+        app: myjavaapp
     spec:
       containers:
-      - name: my-springboot-app
+      - name: myjavaapp
         image: public.ecr.aws/p5u5p5h0/buchananecr:v1.41
-        imagePullPolicy: Always
         ports:
-        - containerPort: 80
-          name: http
-          protocol: TCP
-# service type loadbalancer       
+        - containerPort: 9099
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    app: springboot-app
-    k8s-app: springboot-app
-  name: springboot-app
+  name: myjavaapp-service
 spec:
+  selector:
+    app: myjavaapp
   ports:
   - name: http
     port: 80
-    protocol: TCP
-    targetPort: 80
+    targetPort: 9099
   type: LoadBalancer
-  selector:
-    app: springboot-app
-
-
-#test
