@@ -23,7 +23,7 @@ public class SpringController {
 //		Integer sec = date.getSecond();
 		val++;
 //		Integer count = year + month + day + hour + min + sec + 1;
-		String result = "Welcome to Buchanan Technologies, This is Sample CICD DevOps ProJect." + val;
+		String result = "Hi All, Welcome to Buchanan Technologies, This is a sample CICD DevOps ProJect." + val;
 		return result;
 	}
 }
