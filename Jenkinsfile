@@ -52,7 +52,7 @@ pipeline{
             
             steps{
                 script{
-                   sh 'docker image build -t ${APP_NAME}:v1.${IMAGE_TAG} .'
+                   sh 'docker image build -t ${APP_NAME}:latest .'
                     //sh 'docker build -t public.ecr.aws/p5u5p5h0/buchananecr:${env.BUILD_NUMBER} .'
                    //sh 'docker tag buchananecr:buchananlatest public.ecr.aws/p5u5p5h0/buchananecr:buchananlatest'
                 }
@@ -62,7 +62,7 @@ pipeline{
 
             steps{
                 script{
-                   sh 'docker push ${APP_NAME}:v1.${IMAGE_TAG}'
+                   sh 'docker push ${APP_NAME}:latest'
                 }
             }
         }
